@@ -1,0 +1,25 @@
+{
+    "manifest_version": 2,
+    "name": "Github Keep-Alive",
+    "version": "1.0",
+    "description": "Keeps Github connection alive by sending a GET request every 15 seconds.",
+    "author": "Iman Gowhari <gowhari@gmail.com>",
+
+
+    "background": {
+        "scripts": ["background.js"]
+    },
+    "permissions": [
+        "https://github.com/"
+    ],
+
+
+    "icons": {
+        "128": "icon.png"
+    },
+    "browser_action": {
+        "default_icon": {
+            "128": "icon.png"
+        }
+    }
+}
