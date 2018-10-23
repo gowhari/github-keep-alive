@@ -6,9 +6,21 @@
     const cycle_time = 15000;
     const request_timeout = 3000;
     const states = {
-        'active': {color: '#080', text: '\u2714'},
-        'inactive': {color: '#888', text: ' '},
-        'interrupt': {color: '#f80', text: '\u2716'},
+        active: {
+            color: '#080',
+            badge_text: '\u2714',
+            title: 'It seems that everything is working fine!',
+        },
+        inactive: {
+            color: '#888',
+            badge_text: ' ',
+            title: 'Inactive',
+        },
+        interrupt: {
+            color: '#f80',
+            badge_text: '\u2716',
+            title: 'Last request failed. No need to do anything, we will keep trying.',
+        },
     };
     var is_active = true;
 
@@ -43,8 +55,9 @@
 
     var set_state = function(state_name) {
         var state = states[state_name];
-        chrome.browserAction.setBadgeText({text: state.text});
+        chrome.browserAction.setBadgeText({text: state.badge_text});
         chrome.browserAction.setBadgeBackgroundColor({color: state.color});
+        chrome.browserAction.setTitle({title: 'Github Keep-Alive\n' + state.title});
     };
 
 
